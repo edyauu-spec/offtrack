@@ -50,7 +50,7 @@
   .rise { opacity:0; translate:0 40px; transition:opacity .7s, translate .7s var(--out) }
   .rise.in { opacity:1; translate:0 0 }
   @supports (animation-timeline: view()) {
-    .rise { transition:none; animation:rise linear both; animation-timeline:view(); animation-range:entry 0% cover 35% }
+    .rise { transition:none; animation:rise linear both; animation-timeline:view(); animation-range:entry 0% entry 80% }
   }
   @keyframes rise { from { opacity:0; translate:0 40px } to { opacity:1; translate:0 0 } }
 
@@ -124,14 +124,16 @@
   .stick img.show { opacity:1; translate:0 0; scale:1 }
   .stick img.past { translate:0 -6% }
   .step { min-height:90vh; display:grid; align-content:center; gap:16px }
+  .step > .phoneshot { display:none }
   .step small { color:var(--clay); font-weight:800; letter-spacing:.1em; display:inline-block; opacity:.45; transition:opacity .3s }
   .step.now small { opacity:1; animation:tick .5s var(--spring) }
   @keyframes tick { from { translate:0 10px; opacity:0 } }
   @container (max-width:700px) {
     .tour { grid-template-columns:1fr }
-    .stick { top:60px; height:52vh; z-index:2; background:linear-gradient(var(--cream) 85%, transparent) }
-    .stick .phoneshot { width:min(200px, 48cqi) }
-    .step { min-height:70vh; align-content:end; padding-bottom:10vh }
+    /* phones: no sticky screenshot over the text; each step shows its own screen under its words */
+    .stick { display:none }
+    .step { min-height:0; padding:12vh 0 4vh; gap:14px }
+    .step .phoneshot { display:block; width:min(250px, 66cqi); margin:18px auto 0 }
   }
 
   /* ---------- dialogs: bottom sheet on phone, centred card on desktop; animate in and out ---------- */
@@ -261,6 +263,12 @@ new IntersectionObserver(([e]) => pill.classList.toggle('show', !e.isIntersectin
 
 // tour: the phone shows the screen for the step in view; earlier screens leave upwards, later ones wait below
 const shots = $$('.stick img'), steps = $$('.step');
+steps.forEach((s, i) => {
+  const shot = document.createElement('div'); shot.className = 'phoneshot rise';
+  shot.innerHTML = `<img src="${shots[i].getAttribute('src')}" alt="${shots[i].alt}" loading="lazy" decoding="async">`;
+  s.append(shot); io.observe(shot);
+});
+shots.slice(1).forEach(img => img.loading = 'lazy');
 const stepIO = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
   const n = +e.target.dataset.i;
