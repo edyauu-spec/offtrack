@@ -91,10 +91,14 @@
                background:url(landing/posters/santorini.jpg) center/cover;
                box-shadow:0 26px 44px #2b242055; animation:bob 1.8s ease-in-out infinite alternate }
   @keyframes bob { to { translate:0 -8px } }
-  .wel .jump b { position:absolute; left:11px; bottom:36px; font-weight:800; font-size:17px; color:#fff; text-shadow:0 1px 6px #0008 }
+  /* text stays level while the card tilts; sized from the card width like the app's hero card (bold name, plain detail line) */
+  .wel .jumpw { container-type:inline-size }
+  .wel .jump .cap { position:absolute; left:8cqi; bottom:7cqi; rotate:-12deg; transform-origin:0 100%; color:#fff; text-shadow:0 1px 8px #0009; white-space:nowrap }
+  .wel .jump b { display:block; font-weight:800; font-size:15cqi; line-height:1.05; letter-spacing:-.01em }
+  .wel .jump .cap span { display:block; margin-top:1.5cqi; font-weight:600; font-size:7.6cqi }
   .wel .gl { position:absolute; height:24px; padding:0 9px; border-radius:12px; display:inline-flex; align-items:center;
              background:#2b2420a8; color:#fff; font-size:11px; font-weight:800; backdrop-filter:blur(8px); font-variant-numeric:tabular-nums }
-  .wel .gl.t { right:8px; top:9px; background:var(--clay) } .wel .gl.f { left:8px; bottom:8px }
+  .wel .gl.t { right:8px; top:9px; background:var(--clay); rotate:-12deg; font-size:7.6cqi; height:auto; padding:1.6cqi 4cqi; border-radius:99px }
 
   .wel .copy { position:absolute; left:6cqi; right:6cqi; bottom:6%; z-index:2 }
   .wel .copy > * { animation:up .8s var(--out) both; animation-delay:calc(.35s + var(--i) * .09s) }
@@ -183,7 +187,7 @@
       <div class="row"><div class="trk" data-k="paris seoul lisbon marrakech sydney"></div><div class="rail"></div></div>
     </div>
     <div class="fade"></div>
-    <div class="jumpw"><div class="jump"><span class="gl t">in 9 days</span><b>Santorini</b><span class="gl f">3 off · 1 leave</span></div></div>
+    <div class="jumpw"><div class="jump"><span class="gl t">in 9 days</span><div class="cap"><b>Santorini</b><span>3 off · 1 leave</span></div></div></div>
     <div class="copy">
       <div class="wm" style="--i:0" role="heading" aria-level="1" aria-label="Off Track">off<i>/</i>track</div>
       <div class="tag" style="--i:1">Your days off, <i>tracked.</i></div>
