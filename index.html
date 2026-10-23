@@ -123,10 +123,10 @@
   .tour { display:grid; grid-template-columns:1fr 1fr; gap:4cqi; padding:0 6cqi }
   .stick { position:sticky; top:12vh; height:76vh; display:grid; place-items:center }
   .stick .phoneshot { position:relative }
-  .stick img { position:absolute; inset:0; opacity:0; translate:0 6%; scale:.96;
-               transition:opacity .45s, translate .6s var(--out), scale .6s var(--out) }
-  .stick img.show { opacity:1; translate:0 0; scale:1 }
-  .stick img.past { translate:0 -6% }
+  /* plain cross-fade in place: no sliding, so no edge of one screen shows while another arrives, and no black behind */
+  .stick .phoneshot { background:var(--cream) }
+  .stick img { position:absolute; inset:0; opacity:0; transition:opacity .3s ease }
+  .stick img.show { opacity:1 }
   .step { min-height:90vh; display:grid; align-content:center; gap:16px }
   .step > .phoneshot { display:none }
   .step small { color:var(--clay); font-weight:800; letter-spacing:.1em; display:inline-block; opacity:.45; transition:opacity .3s }
