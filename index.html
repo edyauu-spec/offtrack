@@ -82,23 +82,24 @@
   .wel .fade { position:absolute; inset:38% 0 0; background:linear-gradient(transparent, var(--cream) 62%); pointer-events:none }
 
   /* the postcard: drops in last, then floats; lifts away as the hero scrolls off */
-  .wel .jumpw { position:absolute; right:clamp(28px, 16cqi, 260px); top:24%; width:clamp(142px, 17cqi, 230px); aspect-ratio:142/190;
+  .wel .jumpw { position:absolute; right:clamp(28px, 16cqi, 260px); top:24%; width:clamp(230px, 30cqi, 380px); aspect-ratio:3/2;
                 animation:drop .9s .55s var(--spring) both, lift linear both; animation-timeline:auto, --hero;
                 animation-range:normal, exit 0% exit 100% }
   @keyframes drop { from { opacity:0; scale:1.25; rotate:-14deg } }
   @keyframes lift { to { translate:0 -40% } }
-  .wel .jump { position:absolute; inset:0; border-radius:28px; border:4px solid #fff; rotate:12deg;
+  .wel .jump { position:absolute; inset:0; border-radius:28px; border:4px solid #fff;
                background:url(landing/posters/santorini.jpg) center/cover;
                box-shadow:0 26px 44px #2b242055; animation:bob 1.8s ease-in-out infinite alternate }
   @keyframes bob { to { translate:0 -8px } }
-  /* text stays level while the card tilts; sized from the card width like the app's hero card (bold name, plain detail line) */
+  /* an upright landscape card like the app's Home hero; text sized from the card width */
   .wel .jumpw { container-type:inline-size }
-  .wel .jump .cap { position:absolute; left:8cqi; bottom:7cqi; rotate:-12deg; transform-origin:0 100%; color:#fff; text-shadow:0 1px 8px #0009; white-space:nowrap }
-  .wel .jump b { display:block; font-weight:800; font-size:15cqi; line-height:1.05; letter-spacing:-.01em }
-  .wel .jump .cap span { display:block; margin-top:1.5cqi; font-weight:600; font-size:7.6cqi }
+  .wel .jump::after { content:''; position:absolute; inset:40% 0 0; border-radius:0 0 24px 24px; background:linear-gradient(transparent, #2b2420b3) }
+  .wel .jump .cap { position:absolute; z-index:1; left:6cqi; bottom:5cqi; color:#fff; text-shadow:0 1px 8px #0009; white-space:nowrap }
+  .wel .jump b { display:block; font-weight:800; font-size:9.5cqi; line-height:1.05; letter-spacing:-.01em }
+  .wel .jump .cap span { display:block; margin-top:1cqi; font-weight:600; font-size:4.8cqi }
   .wel .gl { position:absolute; height:24px; padding:0 9px; border-radius:12px; display:inline-flex; align-items:center;
              background:#2b2420a8; color:#fff; font-size:11px; font-weight:800; backdrop-filter:blur(8px); font-variant-numeric:tabular-nums }
-  .wel .gl.t { right:8px; top:9px; background:var(--clay); rotate:-12deg; font-size:7.6cqi; height:auto; padding:1.6cqi 4cqi; border-radius:99px }
+  .wel .gl.t { right:8px; top:9px; background:var(--clay); font-size:4.4cqi; height:auto; padding:1.2cqi 3cqi; right:4cqi; top:4cqi; border-radius:99px }
 
   .wel .copy { position:absolute; left:6cqi; right:6cqi; bottom:6%; z-index:2 }
   .wel .copy > * { animation:up .8s var(--out) both; animation-delay:calc(.35s + var(--i) * .09s) }
