@@ -111,13 +111,13 @@
   .wel .tag { font-size:clamp(23px, 3.4cqi, 44px); font-weight:800; letter-spacing:-.03em; margin-top:10px }
   .wel .line { color:var(--muted); font-weight:600; margin-top:10px; font-size:clamp(14px, 1.5cqi, 18px) }
   .wel .line s { text-decoration:none; color:var(--clay); padding:0 4px }
-  .wel .cta { display:inline-flex; margin-top:24px; padding:17px 34px; border-radius:99px; background:var(--clay); color:#fff;
+  .wel .cta, .setup .cta { display:inline-flex; margin-top:24px; padding:17px 34px; border-radius:99px; background:var(--clay); color:#fff;
               font-weight:800; font-size:17px; text-decoration:none; position:relative; overflow:hidden; transition:scale .15s }
-  .wel .cta::after { content:""; position:absolute; inset:0; translate:-120% 0;
+  .wel .cta::after, .setup .cta::after { content:""; position:absolute; inset:0; translate:-120% 0;
                      background:linear-gradient(100deg, transparent 30%, #ffffff55 50%, transparent 70%); animation:shine 6s 2.5s infinite }
   @keyframes shine { 0% { translate:-120% 0 } 18%, 100% { translate:120% 0 } }
-  .wel .fine { color:var(--muted); font-size:13px; margin-top:12px }
-  @container (max-width:700px) { .wel .cta { display:flex; justify-content:center } .wel .fine { text-align:center } }
+  .wel .fine, .setup .fine { color:var(--muted); font-size:13px; margin-top:12px }
+  @container (max-width:700px) { .wel .cta, .setup .cta { display:flex; justify-content:center } .wel .fine, .setup .fine { text-align:center } }
 
   /* ---------- tour: sticky phone, screens change with the step in view ---------- */
   .tour { display:grid; grid-template-columns:1fr 1fr; gap:4cqi; padding:0 6cqi }
@@ -221,24 +221,25 @@
     </div></div>
     <div>
       <div class="step now" data-i="0"><small>01 · BALANCE</small><h2 class="rise">One ring.<br>Every day off.</h2><p class="lede rise">Days used, days booked, and what's left in the middle.</p></div>
-      <div class="step" data-i="1"><small>01 · YOUR YEAR</small><h2 class="rise">Tap it.<br>See the year.</h2><p class="lede rise">The ring turns over to show your year: days away, the leave days they cost, and a dot for each month.</p></div>
-      <div class="step" data-i="2"><small>02 · PLAN</small><h2 class="rise">One day of leave.<br>Four days off.</h2><p class="lede rise">Breaks for you finds the leave worth taking around public holidays. National Day in Hong Kong, for example, becomes four days off for one day of leave. The year is laid out with public holidays and weekends marked, for <b data-count="130">130</b> countries and territories.</p></div>
-      <div class="step" data-i="3"><small>03 · EXPLORE</small><h2 class="rise">Somewhere<br>new.</h2><p class="lede rise"><b data-count="360">360</b>+ illustrated places. Filter by month, trip length, region or the kind of break you want.</p></div>
-      <div class="step" data-i="4"><small>03 · THE PLACE</small><h2 class="rise">Open a card.<br>Plan the trip.</h2><p class="lede rise">Flight time, a rough fare, the best months for weather, and what to see and do, from Wikivoyage.</p></div>
-      <div class="step" data-i="5"><small>04 · GO</small><h2 class="rise">Count it<br>down.</h2><p class="lede rise">Your next trip is a postcard on Home, with the days counting down. All your trips, coming up and past, are one tap away.</p></div>
-      <div class="step" data-i="6"><small>05 · WIDGETS</small><h2 class="rise">On your<br>Home Screen.</h2><p class="lede rise">Widgets for your next trip or your balance. Everything else is free; the widgets are a one-off purchase.</p></div>
-      <div class="step" data-i="7"><small>06 · SUPPORT</small><h2 class="rise">Made by<br>one person.</h2><p class="lede rise">If Off Track has helped you, there's an optional tip jar. Tips unlock nothing.</p></div>
+      <div class="step" data-i="1"><small>02 · YOUR YEAR</small><h2 class="rise">Tap it.<br>See the year.</h2><p class="lede rise">The ring turns over to show your year: days away, the leave days they cost, and a dot for each month.</p></div>
+      <div class="step" data-i="2"><small>03 · PLAN</small><h2 class="rise">One day of leave.<br>Four days off.</h2><p class="lede rise">Breaks for you finds the leave worth taking around public holidays. National Day in Hong Kong, for example, becomes four days off for one day of leave. The year is laid out with public holidays and weekends marked, for <b data-count="130">130</b> countries and territories.</p></div>
+      <div class="step" data-i="3"><small>04 · EXPLORE</small><h2 class="rise">Somewhere<br>new.</h2><p class="lede rise"><b data-count="360">360</b>+ illustrated places. Filter by month, trip length, region or the kind of break you want.</p></div>
+      <div class="step" data-i="4"><small>05 · THE PLACE</small><h2 class="rise">Open a card.<br>Plan the trip.</h2><p class="lede rise">Flight time, a rough fare, the best months for weather, and what to see and do, from Wikivoyage.</p></div>
+      <div class="step" data-i="5"><small>06 · GO</small><h2 class="rise">Count it<br>down.</h2><p class="lede rise">Your next trip is a postcard on Home, with the days counting down. All your trips, coming up and past, are one tap away.</p></div>
+      <div class="step" data-i="6"><small>07 · WIDGETS</small><h2 class="rise">On your<br>Home Screen.</h2><p class="lede rise">Widgets for your next trip or your balance. Everything else is free; the widgets are a one-off purchase.</p></div>
+      <div class="step" data-i="7"><small>08 · SUPPORT</small><h2 class="rise">Made by<br>one person.</h2><p class="lede rise">If Off Track has helped you, there's an optional tip jar. Tips unlock nothing.</p></div>
     </div>
   </div>
 
   <section class="setup">
-    <small>SET UP</small><h2 class="rise">Set up in<br>a minute.</h2>
+    <small>GETTING STARTED</small><h2 class="rise">Set up in<br>a minute.</h2>
     <ol>
       <li class="rise"><h3>Pick where home is.</h3><p>Sets your public holidays and your flight times.</p></li>
       <li class="rise"><h3>Say how many leave days you get.</h3><p>A rough number is fine. Add extra days carried over, and the month your leave year starts.</p></li>
       <li class="rise"><h3>Say how many you've used.</h3><p>A guess is fine. Booked trips can be added once you're in.</p></li>
     </ol>
     <p class="lede rise">You can change all of this later in Settings. Don't track your leave? Skip it and just use Plan and Explore.</p>
+    <div><a class="cta" data-store href="#">Download on the App Store</a><div class="fine">No sign-up. Your leave stays on your phone.</div></div>
   </section>
   <footer><a data-dlg="privacy">Privacy</a><a data-dlg="support">Support</a><a data-dlg="terms">Terms of Use</a><span>© 2026 Ed Yau</span></footer>
 </main>
@@ -291,10 +292,13 @@ $$('.wel .trk').forEach(t => {
 const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), { root: stage, threshold: .2 });
 $$('.rise').forEach(el => io.observe(el));
 
-// the floating Download pill only shows once the hero's own button has scrolled away
-const pill = document.querySelector('.pill');
-new IntersectionObserver(([e]) => pill.classList.toggle('show', !e.isIntersecting), { root: stage })
-  .observe(document.querySelector('.wel .cta'));
+// the floating Download pill shows only while neither the hero's button nor the closing one is on screen
+const pill = document.querySelector('.pill'), seen = new Set();
+const ctaIO = new IntersectionObserver(es => {
+  es.forEach(e => e.isIntersecting ? seen.add(e.target) : seen.delete(e.target));
+  pill.classList.toggle('show', !seen.size);
+}, { root: stage });
+$$('.cta').forEach(c => ctaIO.observe(c));
 
 // tour: the phone shows the screen for the step in view; earlier screens leave upwards, later ones wait below
 const shots = $$('.stick img'), steps = $$('.step');
